@@ -21,7 +21,18 @@ npm install
 npm start
 ```
 
-Your app should now be running on [localhost:8040](http://localhost:8040/).
+Your app should now be running on [localhost:8040](http://localhost:8040/) and display the test results.
+
+### Serve
+
+A single instance of the node server can be run using
+```sh
+npm serve
+```
+Which will start the server at app/server.js
+
+Routes defined in server.js are handled in the routes/*.js files
+Common http requests found in actions/*.js are promise functions 
 
 ### Testing
 
