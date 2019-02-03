@@ -25,6 +25,16 @@ describe("Main routes", () => {
             });
         });
     });
+    describe("wrong url request", () => {
+        it("returns 404 status", (done) => {
+            chai.request('localhost:8040')
+            .get('/oops-no-page')
+            .end((err, res) => {
+                assert(res.status == 404);
+                done();
+            });
+        });
+    });
 });
 describe("Image routes", () => {
     describe("/images request", () => {
@@ -45,6 +55,28 @@ describe("Image routes", () => {
             .end((err, res) => {
                 chai.assert.isArray(res.body);
                 assert(res.body.length == 5);
+                done();
+            });
+        });
+    });
+    describe("/images/:size/:offset request using negative params", () => {
+        it("returns an empty array", (done) => {
+            chai.request('localhost:8040')
+            .get('/images/-5/-5')
+            .end((err, res) => {
+                chai.assert.isArray(res.body);
+                assert(res.body.length == 0);
+                done();
+            });
+        });
+    });
+    describe("/images/:size/:offset request using string params", () => {
+        it("returns an empty array", (done) => {
+            chai.request('localhost:8040')
+            .get('/images/five/five')
+            .end((err, res) => {
+                chai.assert.isArray(res.body);
+                assert(res.body.length == 0);
                 done();
             });
         });

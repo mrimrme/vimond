@@ -1,5 +1,5 @@
 const express = require("express");
-
+const helmet = require('helmet');
 const mCache = require('memory-cache');
 
 const main = require('./routes/main');
@@ -7,6 +7,7 @@ const images = require('./routes/images');
 const users = require('./routes/users');
 const todos = require('./routes/todos');
 const app = express();
+
 
 var cache = (duration) => {
     return (req, res, next) => {
@@ -26,7 +27,9 @@ var cache = (duration) => {
     }
 }
 
+app.use(helmet());
 app.set('json spaces', 2);
+
 
 app.get("/ping", cache(10), main.ping);
 app.get("/version", cache(10), main.version);
