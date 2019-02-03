@@ -1,0 +1,20 @@
+{
+  "name": "vimond",
+  "version": "1.0.0",
+  "description": "Simple Rest API that works as a middle-layer between a client and another Rest API",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://pakvla.nl/git/vimond.git"
+  },
+  "author": "M. Wolzak",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "memory-cache": "^0.2.0",
+    "mocha": "^5.2.0"
+  }
+}
