@@ -15,7 +15,7 @@ Make sure you have [Node.js](http://nodejs.org/) installed
 ### Installing
 
 ```sh
-git clone git@github.com:heroku/node-js-sample.git
+git clone git@github.com:mrimrme/vimond.git
 cd vimond
 npm install
 npm start
