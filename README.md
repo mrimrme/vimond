@@ -31,8 +31,8 @@ npm serve
 ```
 Which will start the server at app/server.js
 
-Routes defined in server.js are handled in the routes/*.js files
-Common http requests found in actions/*.js are promise functions 
+Routes defined in server.js are handled in the app/routes/*.js files
+Common http requests found in app/actions/*.js are promise functions 
 
 ### Testing
 
