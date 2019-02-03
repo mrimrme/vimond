@@ -26,7 +26,7 @@ module.exports = {
         httpRequest(params, todo).then((data) => {
             res.send(data);
         }).catch(e => {
-            console.log(e);
+            console.error(e);
         });
     },
 }

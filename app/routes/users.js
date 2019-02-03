@@ -10,13 +10,13 @@ module.exports = {
         let userRequest = getUser(8).then(user =>{
             output.user = user;
         }).catch(e => {
-            console.log(e);
+            console.error(e);
         });
        
         let postsRequest = getUserPosts(8).then(posts => {
             output.posts = posts;
         }).catch(e => {
-            console.log(e);
+            console.error(e);
         });
         Promise.all([userRequest, postsRequest]).then(()=>{
             res.json(output);
@@ -42,17 +42,17 @@ module.exports = {
                 let postRequest = getUserPosts(userId).then(posts =>{
                     output.posts = output.posts.concat(posts);
                 }).catch(e => {
-                    console.log(e);
+                    console.error(e);
                 });
                 postRequests.push(postRequest);
             }
             Promise.all(postRequests).then(()=>{
                 res.json(output);
             }).catch(e => {
-                console.log(e);
+                console.error(e);
             });
         }).catch(e => {
-            console.log(e);
+            console.error(e);
         });
     },
     sorted: (req, res) => {
@@ -71,7 +71,7 @@ module.exports = {
             });
             res.send(users);
         }).catch(e => {
-            console.log(e);
+            console.error(e);
         });
     }
 }

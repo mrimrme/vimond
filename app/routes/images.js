@@ -11,7 +11,7 @@ module.exports = {
         httpRequest(params).then(images => {
             res.json(images);
         }).catch(e => {
-            console.log(e);
+            console.error(e);
         });
     },
     paginated: (req, res) => {
@@ -26,7 +26,7 @@ module.exports = {
         httpRequest(params).then(images => {
             res.json(images.slice(offset,(size+offset)));
         }).catch(e => {
-            console.log(e);
+            console.error(e);
         });
     },
 }

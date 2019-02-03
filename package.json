@@ -2,9 +2,10 @@
   "name": "vimond",
   "version": "1.0.0",
   "description": "Simple Rest API that works as a middle-layer between a client and another Rest API",
-  "main": "app.js",
+  "main": "app/server.js",
   "scripts": {
-    "start": "node app/server",
+    "start": "concurrently \"node app/server\" \"mocha\"",
+    "serve": "node app/server",
     "test": "mocha"
   },
   "repository": {
@@ -16,6 +17,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "helmet": "^3.15.0",
     "memory-cache": "^0.2.0",
