@@ -22,3 +22,11 @@ npm start
 ```
 
 Your app should now be running on [localhost:8040](http://localhost:8040/).
+
+### Testing
+
+Mocha/chai tests are located in /test/main.js which can be run using
+
+```sh
+npm test
+```

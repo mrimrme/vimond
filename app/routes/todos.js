@@ -13,13 +13,8 @@ module.exports = {
         });
         req.on('end', () => {
             todo = todo.toString("utf-8");
-            let todos = mCache.get("todos") ? JSON.parse(mCache.get("todos")) : [];
-            try {
-                todo = JSON.parse(todo);
-            } catch(err) {
-                res.status(400).send("could not parse json");
-            }
-            todos.push(todo);
+            let todos = JSON.parse(mCache.get("todos")) || [];
+            todos.push(JSON.parse(todo));
             mCache.put("todos", JSON.stringify(todos));
         });
         
@@ -29,7 +24,7 @@ module.exports = {
             path: '/todos'
         };
         httpRequest(params, todo).then((data) => {
-            res.json(data);
+            res.send(data);
         }).catch(e => {
             console.log(e);
         });
